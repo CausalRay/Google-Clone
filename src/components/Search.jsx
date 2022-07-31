@@ -19,7 +19,6 @@ function Search({ hideButtons = false }) {
         type: actionTypes.SET_SEARCH_TERM, 
         term: input
     })
-    console.log("hit search");
     navigate("/search", { replace: false });
   };
 
