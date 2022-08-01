@@ -14,11 +14,10 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 
 const SearchPage = () => {
   const [{ term }, dispatch] = useStateValue();
-  // const {data} = UseGoogleSearch(term)
+  const {data} = UseGoogleSearch(term)
 
-  const data = Response;
 
-  console.log(data);
+
   return (
     <div className="searchpage">
       <div className="searchPage__header">
@@ -76,7 +75,44 @@ const SearchPage = () => {
           </div>
         </div>
       </div>
-      <div className="searchPage__results"></div>
+
+      {term && (
+        <div className="searchPage__results">
+          <p className="searchPage__result--count">
+            About {data?.searchInformation.formattedTotalResults} results (
+            {data?.searchInformation.formattedSearchTime} seconds) for {term}
+          </p>
+
+          {data?.items.map((item) => (
+            <div className="searchPage__result" >
+              <a
+                className="searchPage__result--link"
+                href={item.link}
+                target="_blank"
+              >
+                {item.pagemap?.cse_image?.length > 0 &&
+                  item.pagemap?.cse_image[0]?.src && (
+                    <img
+                      className="searchPage__result--image"
+                      src={item.pagemap?.cse_image[0]?.src}
+                      alt=""
+                    />
+                  )}
+                {item.displayLink}
+              </a>
+
+              <a
+                className="searchPage__result--title"
+                href={item.link}
+                target="_blank"
+                >
+                <h2>{item.title}</h2>
+              </a>
+              <p className="searchPage__result--snippet">{item.snippet}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

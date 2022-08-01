@@ -49,4 +49,49 @@ max-width: unset;
 
 .searchPage__option a {
     margin-left: 5px;
+    cursor: no-drop;
+}
+
+
+.searchPage__result {
+    margin: 40px 0;
+}
+
+.searchPage__result--count {
+    color: #70757a;
+    font-size: 14px;
+}
+
+.searchPage__results {
+    max-width: 650px;
+    margin-top: 20px;
+    margin-left: 240px;
+    margin-bottom: 100px;
+}
+
+.searchPage__result--title {
+    text-decoration:none;
+}
+
+.searchPage__result--title:hover {
+    text-decoration: underline;
+}
+
+.searchPage__result .h2 {
+    font-weight: 100;
+}
+
+.searchPage__result--snippet {
+    margin-top: 10px;
+}
+
+.searchPage__result--image {
+    object-fit: contain;
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+}
+
+.searchPage__result--link .item.displayLink{
+    text-decoration: none;
 }

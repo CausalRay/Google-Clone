@@ -17,6 +17,7 @@
     color: rgba(0,0,0,0.87);
     font-size: 15px;
     font-family: arial, sans-serif;
+    cursor: no-drop;
 }
 
 .home__header a:hover{
